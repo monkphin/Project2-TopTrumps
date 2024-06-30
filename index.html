@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <header>
+    <!--site logo-->
+    
+  </header>
+  <main>
+    <!-- Welcome message with game instructions-->
+    <div>
+      <h1>Welcome to </h1>
+    </div>
+    <div>
+      <h2>Instructions</h2>
+      <p>Each card has 4 statistics to choose from, you will pick one of these in the hopes of it being better than the corresponding statistic on your opponents card. 
+        Depending on the statistic in question, you may be looking for higher or lower numbers. Once you have made your choice it will be compared to the same statistic
+        on your opponents card and the better score will win. If you win, your opponent loses a card and you go again. If your opponent wins you lose a card and its their
+         turn.</p>
+      <p>The game will continue until one player loses all their cards.</p>
+      <p>To begin, please enter your name below and choose the number of rounds you wish to play - this will determine how many cards are drawn for each player.</p>   
+    </div>
+    <div>
+        <form action="game.html">
+            <label for="player_name">please enter your name</label>
+            <input type="text" id="player_name" name="player_name">
+            <label for="rounds">Please select the number of rounds</label>
+            <select id="rounds" name="rounds">
+                <option="5">5 rounds</option>
+                <option="10">10 rounds</option>
+                <option="15">15 rounds</option>
+                <option="20">20 rounds</option>
+            </select>
+            <input type="submit" title="Play Game"></button>
+        </form>
+    </div>
+  </main>
+  <footer>    
+    <!--site footer-->
+
+  </footer>
+</body>
+</html>
