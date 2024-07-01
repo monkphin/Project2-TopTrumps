@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <title>Document</title>
 </head>
 <body>
@@ -13,75 +15,74 @@
   <main>
     <!-- welcome message showing player name-->
     <div class="container-fluid">
-      <h1>Welcome to </h1>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <!--player section-->  
-        <div class="column">
-         <!--player card column-->
-        </div>
-
-        <div class="column"></div>
-        <!--player stats column-->
-        </div>
-
-      <div class="row">
-        <div class="column">
-        <!-- player card data section-->
-      
-        </div>
-      </div>
-    </div>
-      
-    <div class="container">
-        <div class="row">
-          <!--Opponent section-->  
-          <div class="column">
-           <!--Opponent card column-->
-          
-          </div>
-  
-          <div class="column"></div>
-          <!--Opponent stats column-->
-
-          </div>
-  
-        <div class="row">
-          <div class="column">
-          <!-- Opponent card data section-->
+      <div class="welcomeMessage">
         
-          </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+         <!--player card column-->
+         Player Card
+        </div>
+        <div class="col-sm-3">
+          <!--player stats column-->
+          PLayer Stats
+        </div>
+        <div class="col-sm-3">
+          <!--Opponent card column-->
+          Enemy Card
+         </div>
+        <div class="col-sm-3">
+          <!--Opponent stats column-->
+          Enemy Stats
         </div>
       </div>
+      <div class="row">
+        <div class="col-sm-6">
+        <!-- player card data section-->
+         Any PLayer Card info (Description etc)
+        </div>
+        <div class="col-sm-6">
+          <!-- Opponent card data section-->
+          Any Enemy Card info (Description etc)
+        </div>
+      </div>
+    </div>
+      
+
 
      </div>
     </div>
     <div class="container">
       <div class="row">
-        <div class="column">
+        <div class="col">
         <!--Game Output section-->
+        OUtput goes here
         </div>
       </div>
       <div class="row">
       <!--Win/Lose section-->
-        <div class="column">
+      Win/Lose area
+        <div class="col">
         <!--Win Title Row-->
         <p>Total Wins:</p>
         </div>
-        <div class="column">
+        <div class="col">
         <!--Loss Title Row-->
         <p>Total Losses:</p>
         </div>
       </div>
       <div class="row">
       <!--number rows-->
-        <div class="column">
+      <div class="col">
         <!--Win column-->
+        0
         </div>
-        <div class="column">
+        <div class="col">
         <!--loss column-->    
+        0  
         </div>
       </div>
 
@@ -91,5 +92,7 @@
     <!--site footer-->
 
   </footer>
+ <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+ <script src="/assets/js/javascript.js"></script>
 </body>
 </html>
