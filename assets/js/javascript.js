@@ -5,15 +5,24 @@
  * using local data storage - https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
  * to allow us to save and retrieve this for later use on the game.html page
  */
-document.addEventListener('DOMContentLoaded', (event) => {
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('welcomeMessage')) {
+      titleName();
+    }
+  });
 
 function handleSubmit(event) {
   event.preventDefault();
   let name = document.getElementById('playerName').value;  
 
-  storePlayerData(name)
+  if (name) {
+    storePlayerData(name);
+    window.location.assign('game.html');
+  } else {
+    alert('Please enter your name before proceeding.')
+  }
 
-  window.location.href = 'game.html';
 }
 
 function storePlayerData(name) {
@@ -21,7 +30,7 @@ function storePlayerData(name) {
 }
 
 function retrievePlayerData() {
-  localStorage.getItem('playerName');
+  let playerName = localStorage.getItem('playerName');
   return { playerName };
 }
 
@@ -38,61 +47,36 @@ function titleName() {
 }
 
 
-});
-
-
-
-//Set Cards
+//Card Generation
 
 /**
- * Array for player cards
+ * Nested function create card data when inserting to the webpage - https://stackoverflow.com/questions/2805613/creating-populating-javascript-custom-object - reminder for basic function taken from here. 
  */
-const playerCards = ("Name", "imgURL") => {
 
+function createCard(name, image) {
+  return {
+    name:name, 
+    image:image, 
+    stats : {
+      stat1 : Math.floor(Math.random() * 100),
+      stat2 : Math.floor(Math.random() * 100),
+      stat3 : Math.floor(Math.random() * 100),
+      stat4 : Math.floor(Math.random() * 100)
+    }
+  };
 }
 
-/** 
- * Array for Enemy Cards
- */
-
-// Reusable code
-
-/**
- * RnG for card stats
- */
+function cardNameGen() {
+  let playerCardName = []
+  let playerCardImg = []
+}
 
 /**
- * Card shuffler
+ * Function for player card names and images
  */
+
+
 
 /**
- * Present Cards
+ * Function for enemy card names and images
  */
-
-/**
- * Show card stats
- */
-
-/**
- *  Results test
- */
-
-/** 
- * Player Messaging
- */
-
-//Game Loop
-
-/** 
- * Player Turn 
- * */
-
-/**
- * Score adjust
- */
-
-/** 
- * Computer Turn
- */
-
-
