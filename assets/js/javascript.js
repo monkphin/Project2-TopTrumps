@@ -4,6 +4,7 @@
  * Collect player name via handleSubmit event and store as 'name' 
  * using local data storage - https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
  * to allow us to save and retrieve this for later use on the game.html page
+ * Currently none functional. Unsure why this is - it seems the button push merely reloads the index.html page
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -47,7 +48,7 @@ function titleName() {
 }
 
 
-//-----------------------------------------Card Generation - tested via 
+//-----------------------------------------Card Generation - tested as it was written via https://linangdata.com/javascript-tester/ using console output to confirm this was working 
 
 /**
  * Nested function create card data when generating cards to insert to he webpage - https://stackoverflow.com/questions/2805613/creating-populating-javascript-custom-object - reminder for basic function taken from here. 
