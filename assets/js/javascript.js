@@ -137,10 +137,22 @@ function initialiseCards() {
 
 }
 
+//-----------------------------------------Game Loops 
+
+
+/**
+ * Select which card to be displayed on screen for each player. 
+ */
+
+function pickCurrentCard(deck) {
+  let activeCard;
+  for(let i = 0; i < deck.length; i++) {
+    currentCard = deck[i]
+  }
+  return currentCard
+}
+
+
 //const.decks = initialiseCards();
 //console.log(decks.playerDeck);
 //console.log(decks.opponentDeck); 
-
-
-//-----------------------------------------Game Loops 
-
