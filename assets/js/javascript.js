@@ -111,7 +111,7 @@ function cardGen() {
  * Shuffle the cards - https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj#:~:text=The%20first%20and%20simplest%20way,)%20%3D%3E%200.5%20%2D%20Math. - below function taken from this website 
  */
 
-const shuffleArray = array => {
+const shuffleCards = array => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     const temp = array[i];
@@ -128,7 +128,7 @@ const shuffleArray = array => {
  */
 
 function initialiseCards() {
-  const allCards = 'cardGen()';
+  const allCards = cardGen();
   const shuffledDeck = shuffleCards(allCards);
   const playerDeck = shuffledDeck.splice(0, 20)
   const opponentDeck = shuffledDeck.slice(0, 20)
@@ -145,7 +145,7 @@ function initialiseCards() {
  */
 
 function pickCurrentCard(deck) {
-  let activeCard;
+  let currentCard;
   for(let i = 0; i < deck.length; i++) {
     currentCard = deck[i]
   }
@@ -153,6 +153,10 @@ function pickCurrentCard(deck) {
 }
 
 
-//const.decks = initialiseCards();
+const decks = initialiseCards();
+let currentPlayerCard = pickCurrentCard(decks.playerDeck);
+let currentOpponentCard = pickCurrentCard(decks.opponentDeck);
 //console.log(decks.playerDeck);
 //console.log(decks.opponentDeck); 
+//console.log(currentPlayerCard);
+//console.log(currentOpponentCard);
