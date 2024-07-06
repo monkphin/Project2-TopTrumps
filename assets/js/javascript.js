@@ -108,10 +108,10 @@ function cardGen() {
 }
 
 /**
- * Shuffle the cards - https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj#:~:text=The%20first%20and%20simplest%20way,)%20%3D%3E%200.5%20%2D%20Math. - below function taken from this website
+ * Shuffle the cards - https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj#:~:text=The%20first%20and%20simplest%20way,)%20%3D%3E%200.5%20%2D%20Math. - below function taken from this website 
  */
 
-function shuffleCards(array) {
+const shuffleArray = array => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     const temp = array[i];
@@ -140,3 +140,7 @@ function initialiseCards() {
 //const.decks = initialiseCards();
 //console.log(decks.playerDeck);
 //console.log(decks.opponentDeck); 
+
+
+//-----------------------------------------Game Loops 
+
