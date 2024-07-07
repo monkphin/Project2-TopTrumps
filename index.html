@@ -9,26 +9,26 @@
 <body>
   <header>
     <!--site logo-->
-    <div id="welcomeMessage"></div>
+    
   </header>
   <main>
     <!-- Welcome message with game instructions-->
     <div id="header">
-    </div>
+      <div class="welcomeMessage"></div>
     <div>
       <h2>Instructions</h2>
       <p>Each card has 4 statistics to choose from, you will pick one of these in the hopes of it being better than the corresponding statistic on your opponents card. 
         Depending on the statistic in question, you may be looking for higher or lower numbers. Once you have made your choice it will be compared to the same statistic
-        on your opponents card and the better score will win. If you win, your opponent loses a card and you go again. If your opponent wins you lose a card and it's their
+        on your opponents card and the better score will win. If you win, your opponent loses a card and you go again. If your opponent wins you lose a card and its their
          turn.</p>
       <p>The game will continue until one player loses all their cards.</p>
       <p>To begin, please enter your name below and choose the number of rounds you wish to play - this will determine how many cards are drawn for each player.</p>   
     </div>
     <div>
         <form id="playerData">
-            <label for="playerName">Please enter your name</label>
+            <label for="playerName">please enter your name</label>
             <input type="text" id="playerName" name="playerName">
-            <button type="button" id="submit" onclick="handleSubmit(event)">Play Game</button>
+            <button type="submit" id="submit" onclick="handleSubmit(event)">Play Game</button>
         </form>
     </div>
   </main>
@@ -36,7 +36,7 @@
     <!--site footer-->
 
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+ <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
   <script src="/assets/js/javascript.js"></script>
 </body>
 </html>

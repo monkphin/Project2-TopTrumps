@@ -11,11 +11,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('welcomeMessage')) {
       titleName();
     }
+    initialiseGame();
   });
+
+/**
+ * Captures the player name from the submit event, this also removes whitespace using trim()
+ * Pops an alert if the player does not enter their name to prompt to enter this
+ */
 
 function handleSubmit(event) {
   event.preventDefault();
-  let name = document.getElementById('playerName').value;  
+  let name = document.getElementById('playerName').value.trim();  
 
   if (name) {
     storePlayerData(name);
@@ -43,7 +49,8 @@ function titleName() {
   let playerData = retrievePlayerData();
   document.getElementById('welcomeMessage').innerHTML += 
   `
-  <h1>Welcome to online Top Trumps ${playerData.playerName}!</h1>
+  <h1>Welcome to online Pokemon Battle ${playerData.playerName}!</h1>
+  <p> Good luck with your game!</p>
   `;
 }
 
@@ -86,16 +93,16 @@ function cardGen() {
   ];
   
   let playerCardImages = [
-    '.../images/pokemon/bulbasaur.avif', '.../images/pokemon/charmander.avif', '.../images/pokemon/squirtle.avif', '.../images/pokemon/caterpie.avif', '.../images/pokemon/weedle.avif',
-    '.../images/pokemon/pidgey.avif', '.../images/pokemon/rattata.avif', '.../images/pokemon/spearow.avif', '.../images/pokemon/ekans.avif', '.../images/pokemon/pikachu.avif',
-    '.../images/pokemon/sandshrew.avif', '.../images/pokemon/nidoran.avif', '.../images/pokemon/clefairy.avif', '.../images/pokemon/vulpix.avif', '.../images/pokemon/jigglypuff.avif',
-    '.../images/pokemon/zubat.avif', '.../images/pokemon/oddish.avif', '.../images/pokemon/paras.avif', '.../images/pokemon/venonat.avif', '.../images/pokemon/diglett.avif',
-    '.../images/pokemon/meowth.avif', '.../images/pokemon/psyduck.avif', '.../images/pokemon/mankey.avif', '.../images/pokemon/growlithe.avif', '.../images/pokemon/poliwag.avif',
-    '.../images/pokemon/abra.avif', '.../images/pokemon/machop.avif', '.../images/pokemon/bellsprout.avif', '.../images/pokemon/tentacool.avif', '.../images/pokemon/geodude.avif',
-    '.../images/pokemon/ponyta.avif', '.../images/pokemon/slowpoke.avif', '.../images/pokemon/magnemite.avif', '.../images/pokemon/farfetched.avif', '.../images/pokemon/doduo.avif',
-    '.../images/pokemon/seel.avif', '.../images/pokemon/grimer.avif', '.../images/pokemon/shellder.avif', '.../images/pokemon/gastly.avif', '.../images/pokemon/onix.avif',
-    '.../images/pokemon/drowzee.avif', '.../images/pokemon/krabby.avif', '.../images/pokemon/voltorb.avif', '.../images/pokemon/exeggcute.avif', '.../images/pokemon/cubone.avif',
-    '.../images/pokemon/hitmonlee.avif', '.../images/pokemon/lickitung.avif', '.../images/pokemon/koffing.avif'
+    'assets/images/pokemon/bulbasaur.webp', 'assets/images/pokemon/charmander.webp', 'assets/images/pokemon/squirtle.webp', 'assets/images/pokemon/caterpie.webp', 'assets/images/pokemon/weedle.webp',
+    'assets/images/pokemon/pidgey.webp', 'assets/images/pokemon/rattata.webp', 'assets/images/pokemon/spearow.webp', 'assets/images/pokemon/ekans.webp', 'assets/images/pokemon/pikachu.webp',
+    'assets/images/pokemon/sandshrew.webp', 'assets/images/pokemon/nidoran.webp', 'assets/images/pokemon/clefairy.webp', 'assets/images/pokemon/vulpix.webp', 'assets/images/pokemon/jigglypuff.webp',
+    'assets/images/pokemon/zubat.webp', 'assets/images/pokemon/oddish.webp', 'assets/images/pokemon/paras.webp', 'assets/images/pokemon/venonat.webp', 'assets/images/pokemon/diglett.webp',
+    'assets/images/pokemon/meowth.webp', 'assets/images/pokemon/psyduck.webp', 'assets/images/pokemon/mankey.webp', 'assets/images/pokemon/growlithe.webp', 'assets/images/pokemon/poliwag.webp',
+    'assets/images/pokemon/abra.webp', 'assets/images/pokemon/machop.webp', 'assets/images/pokemon/bellsprout.webp', 'assets/images/pokemon/tentacool.webp', 'assets/images/pokemon/geodude.webp',
+    'assets/images/pokemon/ponyta.webp', 'assets/images/pokemon/slowpoke.webp', 'assets/images/pokemon/magnemite.webp', 'assets/images/pokemon/farfetched.webp', 'assets/images/pokemon/doduo.webp',
+    'assets/images/pokemon/seel.webp', 'assets/images/pokemon/grimer.webp', 'assets/images/pokemon/shellder.webp', 'assets/images/pokemon/gastly.webp', 'assets/images/pokemon/onix.webp',
+    'assets/images/pokemon/drowzee.webp', 'assets/images/pokemon/krabby.webp', 'assets/images/pokemon/voltorb.webp', 'assets/images/pokemon/exeggcute.webp', 'assets/images/pokemon/cubone.webp',
+    'assets/images/pokemon/hitmonlee.webp', 'assets/images/pokemon/lickitung.webp', 'assets/images/pokemon/koffing.webp'
   ];
   let cards = [];
 
@@ -152,11 +159,41 @@ function pickCurrentCard(deck) {
   return currentCard
 }
 
-let currentPlayerCard = pickCurrentCard(decks.playerDeck);
-let currentOpponentCard = pickCurrentCard(decks.opponentDeck);
+let decks;
+function initialiseGame() {
+  decks = initialiseCards();
+  showCard();
+}
 
-
-
+function showCard() {
+  const currentPlayerCard = pickCurrentCard(decks.playerDeck);
+  if (currentPlayerCard) {
+    document.getElementById('player-card').innerHTML = `
+    <div class="card">
+      <img src="${currentPlayerCard.image}" alt="${currentPlayerCard.name}" class="card-image">
+      <h3 class="card-name">${currentPlayerCard.name}</h3>
+      <table class="card-stats">
+        <tr>
+          <td>Attack:</td>
+          <td>${currentPlayerCard.stats.stat1}</td>
+        </tr>
+        <tr>
+          <td>Defense:</td>
+          <td>${currentPlayerCard.stats.stat2}</td>
+        </tr>
+        <tr>
+          <td>Special Attack:</td>
+          <td>${currentPlayerCard.stats.stat3}</td>
+        </tr>
+        <tr>
+          <td>Special Defense:</td>
+          <td>${currentPlayerCard.stats.stat4}</td>
+        </tr>
+      </table>
+    </div>
+    `;
+  }
+}
 
 
 //-----------------------------------------Test tools
@@ -166,7 +203,8 @@ let currentOpponentCard = pickCurrentCard(decks.opponentDeck);
  * These are designed to initialise subsections of the overall game system, eg card generation or the main game loop etc. 
  * They will output to console the results of each seection of the code that is being test - more outputs and tests to be added as more sections of the code are written
  */
-
+//let currentPlayerCard = pickCurrentCard(decks.playerDeck);
+//let currentOpponentCard = pickCurrentCard(decks.opponentDeck);
 //const decks = initialiseCards();
 //console.log(decks.playerDeck);
 //console.log(decks.opponentDeck); 
