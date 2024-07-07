@@ -152,10 +152,22 @@ function pickCurrentCard(deck) {
   return currentCard
 }
 
-
-const decks = initialiseCards();
 let currentPlayerCard = pickCurrentCard(decks.playerDeck);
 let currentOpponentCard = pickCurrentCard(decks.opponentDeck);
+
+
+
+
+
+//-----------------------------------------Test tools
+
+/**
+ * these are used to test console outputs and are to remain commented for the live version of the game 
+ * These are designed to initialise subsections of the overall game system, eg card generation or the main game loop etc. 
+ * They will output to console the results of each seection of the code that is being test - more outputs and tests to be added as more sections of the code are written
+ */
+
+//const decks = initialiseCards();
 //console.log(decks.playerDeck);
 //console.log(decks.opponentDeck); 
 //console.log(currentPlayerCard);
