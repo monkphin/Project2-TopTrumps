@@ -1,0 +1,38 @@
+.card-image {
+    height: 100%;
+    width: 100%;
+}
+
+.card {
+    position: relative;   
+}
+
+.card-name {
+    position: absolute;
+    top: 50%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    left: 10%;
+    font-size: 2em;
+    text-align: center;
+}
+
+.card-stats {
+    position: absolute;
+    top: 60%;
+    left: 8%;
+    width: 84%;
+}
+
+.stat-title {
+    font-size: 1.5em;   
+    border: 1px solid black;   
+}
+
+.stat-text {
+    font-size: 1.5em;    
+    border: 1px solid black;  
+
+}
+
+

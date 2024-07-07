@@ -95,11 +95,11 @@ function cardGen() {
   let playerCardImages = [
     'assets/images/pokemon/bulbasaur.webp', 'assets/images/pokemon/charmander.webp', 'assets/images/pokemon/squirtle.webp', 'assets/images/pokemon/caterpie.webp', 'assets/images/pokemon/weedle.webp',
     'assets/images/pokemon/pidgey.webp', 'assets/images/pokemon/rattata.webp', 'assets/images/pokemon/spearow.webp', 'assets/images/pokemon/ekans.webp', 'assets/images/pokemon/pikachu.webp',
-    'assets/images/pokemon/sandshrew.webp', 'assets/images/pokemon/nidoran.webp', 'assets/images/pokemon/clefairy.webp', 'assets/images/pokemon/vulpix.webp', 'assets/images/pokemon/jigglypuff.webp',
+    'assets/images/pokemon/sandshrew.webp', 'assets/images/pokemon/nidoran-f.webp', 'assets/images/pokemon/clefairy.webp', 'assets/images/pokemon/vulpix.webp', 'assets/images/pokemon/jigglypuff.webp',
     'assets/images/pokemon/zubat.webp', 'assets/images/pokemon/oddish.webp', 'assets/images/pokemon/paras.webp', 'assets/images/pokemon/venonat.webp', 'assets/images/pokemon/diglett.webp',
     'assets/images/pokemon/meowth.webp', 'assets/images/pokemon/psyduck.webp', 'assets/images/pokemon/mankey.webp', 'assets/images/pokemon/growlithe.webp', 'assets/images/pokemon/poliwag.webp',
     'assets/images/pokemon/abra.webp', 'assets/images/pokemon/machop.webp', 'assets/images/pokemon/bellsprout.webp', 'assets/images/pokemon/tentacool.webp', 'assets/images/pokemon/geodude.webp',
-    'assets/images/pokemon/ponyta.webp', 'assets/images/pokemon/slowpoke.webp', 'assets/images/pokemon/magnemite.webp', 'assets/images/pokemon/farfetched.webp', 'assets/images/pokemon/doduo.webp',
+    'assets/images/pokemon/ponyta.webp', 'assets/images/pokemon/slowpoke.webp', 'assets/images/pokemon/magnemite.webp', 'assets/images/pokemon/farfetchd.webp', 'assets/images/pokemon/doduo.webp',
     'assets/images/pokemon/seel.webp', 'assets/images/pokemon/grimer.webp', 'assets/images/pokemon/shellder.webp', 'assets/images/pokemon/gastly.webp', 'assets/images/pokemon/onix.webp',
     'assets/images/pokemon/drowzee.webp', 'assets/images/pokemon/krabby.webp', 'assets/images/pokemon/voltorb.webp', 'assets/images/pokemon/exeggcute.webp', 'assets/images/pokemon/cubone.webp',
     'assets/images/pokemon/hitmonlee.webp', 'assets/images/pokemon/lickitung.webp', 'assets/images/pokemon/koffing.webp'
@@ -170,26 +170,26 @@ function showCard() {
   if (currentPlayerCard) {
     document.getElementById('player-card').innerHTML = `
     <div class="card">
-      <img src="${currentPlayerCard.image}" alt="${currentPlayerCard.name}" class="card-image">
-      <h3 class="card-name">${currentPlayerCard.name}</h3>
-      <table class="card-stats">
-        <tr>
-          <td>Attack:</td>
-          <td>${currentPlayerCard.stats.stat1}</td>
-        </tr>
-        <tr>
-          <td>Defense:</td>
-          <td>${currentPlayerCard.stats.stat2}</td>
-        </tr>
-        <tr>
-          <td>Special Attack:</td>
-          <td>${currentPlayerCard.stats.stat3}</td>
-        </tr>
-        <tr>
-          <td>Special Defense:</td>
-          <td>${currentPlayerCard.stats.stat4}</td>
-        </tr>
-      </table>
+        <img src="${currentPlayerCard.image}" alt="${currentPlayerCard.name}" class="card-image">
+        <h3 class="card-name">${currentPlayerCard.name}</h3>
+        <table class="card-stats">
+          <tr>
+            <td class="stat-title">Attack:</td>
+            <td class="stat-text">${currentPlayerCard.stats.stat1}</td>
+          </tr>
+          <tr>
+            <td class="stat-title">Defense:</td>
+            <td class="stat-text">${currentPlayerCard.stats.stat2}</td>
+          </tr>
+          <tr>
+            <td class="stat-title">Special Attack:</td>
+            <td class="stat-text">${currentPlayerCard.stats.stat3}</td>
+          </tr>
+          <tr>
+            <td class="stat-title">Special Defense:</td>
+            <td class="stat-text">${currentPlayerCard.stats.stat4}</td>
+          </tr>
+        </table>
     </div>
     `;
   }
@@ -201,7 +201,7 @@ function showCard() {
 /**
  * these are used to test console outputs and are to remain commented for the live version of the game 
  * These are designed to initialise subsections of the overall game system, eg card generation or the main game loop etc. 
- * They will output to console the results of each seection of the code that is being test - more outputs and tests to be added as more sections of the code are written
+ * They will output to console the results of each section of the code that is being test - more outputs and tests to be added as more sections of the code are written
  */
 //let currentPlayerCard = pickCurrentCard(decks.playerDeck);
 //let currentOpponentCard = pickCurrentCard(decks.opponentDeck);
