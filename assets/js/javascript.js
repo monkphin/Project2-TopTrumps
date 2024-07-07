@@ -29,7 +29,6 @@ function handleSubmit(event) {
   } else {
     alert('Please enter your name before proceeding.')
   }
-
 }
 
 function storePlayerData(name) {
@@ -49,7 +48,7 @@ function titleName() {
   let playerData = retrievePlayerData();
   document.getElementById('welcomeMessage').innerHTML += 
   `
-  <h1>Welcome to online Pokemon Battle ${playerData.playerName}!</h1>
+  <h1>Welcome to Pokemon Battle ${playerData.playerName}!</h1>
   <p> Good luck with your game!</p>
   `;
 }
@@ -109,9 +108,7 @@ function cardGen() {
   for (let i = 0; i < playerCardName.length; i++) {
      cards.push(createCard(playerCardName[i], playerCardImages[i])); 
   }
-
   return cards;
-
 }
 
 /**
@@ -162,10 +159,15 @@ function pickCurrentCard(deck) {
 let decks;
 function initialiseGame() {
   decks = initialiseCards();
-  showCard();
+  showPlayerCard();
+  showOpponentCard();
 }
 
-function showCard() {
+/**
+ * Two similar functions to show both players cards. I cannot work out how to parameterise the ID that iss being targeted to maximise DRY methodology and reuse the blow code for both players. 
+ */
+
+function showPlayerCard() {
   const currentPlayerCard = pickCurrentCard(decks.playerDeck);
   if (currentPlayerCard) {
     document.getElementById('player-card').innerHTML = `
@@ -195,6 +197,35 @@ function showCard() {
   }
 }
 
+function showOpponentCard() {
+  const currentOpponentCard = pickCurrentCard(decks.opponentDeck);
+  if (currentOpponentCard) {
+    document.getElementById('opponent-card').innerHTML = `
+    <div class="card">
+        <img src="${currentOpponentCard.image}" alt="${currentOpponentCard.name}" class="card-image">
+        <h3 class="card-name">${currentOpponentCard.name}</h3>
+        <table class="card-stats">
+          <tr>
+            <td class="stat-title">Attack:</td>
+            <td class="stat-text">${currentOpponentCard.stats.stat1}</td>
+          </tr>
+          <tr>
+            <td class="stat-title">Defense:</td>
+            <td class="stat-text">${currentOpponentCard.stats.stat2}</td>
+          </tr>
+          <tr>
+            <td class="stat-title">Special Attack:</td>
+            <td class="stat-text">${currentOpponentCard.stats.stat3}</td>
+          </tr>
+          <tr>
+            <td class="stat-title">Special Defense:</td>
+            <td class="stat-text">${currentOpponentCard.stats.stat4}</td>
+          </tr>
+        </table>
+    </div>
+    `;
+  }
+}
 
 //-----------------------------------------Test tools
 
